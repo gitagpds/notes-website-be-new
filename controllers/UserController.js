@@ -53,8 +53,8 @@ async function createUser(req, res) {
     // Mengambil email dan password dari request body
     const { email, password } = req.body;
 
-    if (Object.keys(req.body).length < 4) {
-      const error = new Error("Field cannot be empty 😠");
+    if (!email || !password) {
+      const error = new Error("Email dan password harus diisi 😠");
       error.statusCode = 400;
       throw error;
     }

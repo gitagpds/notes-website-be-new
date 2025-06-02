@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // <- Diganti sama alamat front-end
+    origin: "https://g-07-450802.uc.r.appspot.com/", // <- Diganti sama alamat front-end
     credentials: true,
   })
 );

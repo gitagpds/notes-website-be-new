@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>API Documentation</title>
   </head>
   <body>
-    <h3>API TCC Pertemuan 7</h3>
-    <div>Daftar Endpoint API:</div>
+    <h3>API WWEBSITE NOTES GITA POETRI DEWI SIREGAR</h3>
+    <div style="margin-bottom: 16px;">DAFTAR ENDPOINT API</div>
     <table border="1">
       <thead>
         <tr>
@@ -19,32 +19,24 @@
         </tr>
       </thead>
       <tbody style="font-family: monospace">
+        <!-- USER ENDPOINTS -->
         <tr>
           <td>POST</td>
           <td>/login</td>
           <td>Login menggunakan email dan password.</td>
           <td>
-            Request Body: <br />
             Content-type: application/json<br />
-            Contoh isi request body: <br />
-            { <br />
-            &nbsp; "email": "awg@awg.inc" <br />
-            &nbsp; "password": "12345678" <br />
+            {<br />
+            &nbsp;"email": "gita@email.com",<br />
+            &nbsp;"password": "gitagita"<br />
             }
           </td>
           <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "Login Berhasil", <br />
-            &nbsp; "data": { <br />
-            &nbsp;&nbsp;&nbsp; "id": 1, <br />
-            &nbsp;&nbsp;&nbsp; "name": "rafli", <br />
-            &nbsp;&nbsp;&nbsp; "email": "rafli@gmail.com", <br />
-            &nbsp;&nbsp;&nbsp; "gender": "Male", <br />
-            &nbsp;&nbsp;&nbsp; "createdAt": "2025-04-29T13:17:17.000Z", <br />
-            &nbsp;&nbsp;&nbsp; "updatedAt": "2025-04-29T13:17:17.000Z" <br />
-            &nbsp;&nbsp; }, <br />
-            &nbsp; "accessToken": "...", <br />
+            {<br />
+            &nbsp;"status": "Success",<br />
+            &nbsp;"message": "Login Berhasil",<br />
+            &nbsp;"data": { ... },<br />
+            &nbsp;"accessToken": "..."<br />
             }
           </td>
         </tr>
@@ -53,13 +45,13 @@
           <td>/logout</td>
           <td>Logout User.</td>
           <td>
-            Request Header: <br />
-            Cookie: refreshToken=[refresh_token] <br /><br />
+            Header:<br />
+            Cookie: refreshToken=[refresh_token]
           </td>
           <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "Logout Berhasil" <br />
+            {<br />
+            &nbsp;"status": "Success",<br />
+            &nbsp;"message": "Logout Berhasil"<br />
             }
           </td>
         </tr>
@@ -68,14 +60,14 @@
           <td>/token</td>
           <td>Mengambil access token menggunakan refresh token.</td>
           <td>
-            Request Header: <br />
-            Cookie: refreshToken=[refresh_token] <br /><br />
+            Header:<br />
+            Cookie: refreshToken=[refresh_token]
           </td>
           <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "Berhasil mendapatkan access token.", <br />
-            &nbsp; "accessToken": "..." <br />
+            {<br />
+            &nbsp;"status": "Success",<br />
+            &nbsp;"message": "Berhasil mendapatkan access token.",<br />
+            &nbsp;"accessToken": "..."<br />
             }
           </td>
         </tr>
@@ -83,113 +75,95 @@
           <td>GET</td>
           <td>/users</td>
           <td>Mengambil seluruh data dari tabel users.</td>
-          <td>
-            Request Header: <br />
-            Authorization: "Bearer [access_token]"
-          </td>
-          <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "Users Retrieved", <br />
-            &nbsp; "data": [ <br />
-            &nbsp;&nbsp; { <br />
-            &nbsp;&nbsp;&nbsp; "id": 1, <br />
-            &nbsp;&nbsp;&nbsp; "name": "rafli", <br />
-            &nbsp;&nbsp;&nbsp; "email": "rafli@gmail.com", <br />
-            &nbsp;&nbsp;&nbsp; "gender": "Male", <br />
-            &nbsp;&nbsp;&nbsp; "password": "...", <br />
-            &nbsp;&nbsp;&nbsp; "refresh_token": "...", <br />
-            &nbsp;&nbsp;&nbsp; "createdAt": "2025-04-29T13:17:17.000Z", <br />
-            &nbsp;&nbsp;&nbsp; "updatedAt": "2025-04-29T13:17:17.000Z" <br />
-            &nbsp;&nbsp; }, <br />
-            &nbsp;&nbsp; ... <br />
-            &nbsp; ] <br />
-            }
-          </td>
+          <td>Authorization: Bearer [access_token]</td>
+          <td>{ "status": "Success", "message": "Users Retrieved", "data": [...] }</td>
         </tr>
         <tr>
           <td>GET</td>
           <td>/users/:id</td>
           <td>Mengambil data dari tabel users berdasarkan id.</td>
-          <td>
-            Request Header: <br />
-            Authorization: "Bearer [access_token]"
-          </td>
-          <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "User Retrieved", <br />
-            &nbsp; "data": { <br />
-            &nbsp;&nbsp; "id": 1, <br />
-            &nbsp;&nbsp; "name": "rafli", <br />
-            &nbsp;&nbsp; "email": "rafli@gmail.com", <br />
-            &nbsp;&nbsp; "gender": "Male", <br />
-            &nbsp;&nbsp; "password": "...", <br />
-            &nbsp;&nbsp; "createdAt": "2025-04-29T13:17:17.000Z", <br />
-            &nbsp;&nbsp; "updatedAt": "2025-04-29T13:17:17.000Z" <br />
-            &nbsp; } <br />
-            }
-          </td>
+          <td>Authorization: Bearer [access_token]</td>
+          <td>{ "status": "Success", "message": "User Retrieved", "data": {...} }</td>
         </tr>
         <tr>
           <td>POST</td>
           <td>/users</td>
           <td>Menambahkan data baru ke tabel users.</td>
-          <td rowspan="2">
-            Request Header: <br />
-            Authorization: "Bearer [access_token]" <br /><br />
-
-            Request Body: <br />
-            Content-type: application/json<br />
-            Contoh isi request body: <br />
-            { <br />
-            &nbsp; "name": "awgnc", <br />
-            &nbsp; "email": "awg@awg.inc", <br />
-            &nbsp; "gender": "Male", <br />
-            &nbsp; "password": "12345678" <br />
-            }
-          </td>
           <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "Users Created" <br />
-            &nbsp; "data": { <br />
-            &nbsp;&nbsp; "id": 1, <br />
-            &nbsp;&nbsp; "name": "awgnc", <br />
-            &nbsp;&nbsp; "email": "aw@awg.inc", <br />
-            &nbsp;&nbsp; "gender": "Male", <br />
-            &nbsp;&nbsp; "password": "...", <br />
-            &nbsp;&nbsp; "createdAt": "2025-04-29T13:17:17.000Z", <br />
-            &nbsp;&nbsp; "updatedAt": "2025-04-29T13:17:17.000Z" <br />
-            &nbsp; } <br />
+            Authorization: Bearer [access_token]<br />
+            Content-type: application/json<br />
+            {<br />
+            &nbsp;"email": "gita@gmail.com",<br />
+            &nbsp;"password": "gitagita"<br />
             }
           </td>
+          <td>{ "status": "Success", "message": "Users Created", "data": {...} }</td>
         </tr>
         <tr>
           <td>PUT</td>
           <td>/users/:id</td>
           <td>Mengubah data dari tabel users berdasarkan id.</td>
           <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "User Updated" <br />
-            }
+            Authorization: Bearer [access_token]<br />
+            Content-type: application/json
           </td>
+          <td>{ "status": "Success", "message": "User Updated" }</td>
         </tr>
         <tr>
           <td>DELETE</td>
           <td>/users/:id</td>
           <td>Menghapus data dari tabel users berdasarkan id.</td>
+          <td>Authorization: Bearer [access_token]</td>
+          <td>{ "status": "Success", "message": "User Deleted" }</td>
+        </tr>
+
+        <!-- NOTES ENDPOINTS -->
+        <tr>
+          <td>GET</td>
+          <td>/notes</td>
+          <td>Mengambil seluruh data notes.</td>
+          <td>None</td>
+          <td>[ { "id": 1, "title": "...", "content": "..." }, ... ]</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/notes/:id</td>
+          <td>Mengambil satu data note berdasarkan id.</td>
+          <td>None</td>
+          <td>{ "id": 1, "title": "...", "content": "..." }</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/add-note</td>
+          <td>Menambahkan note baru.</td>
           <td>
-            Request Header: <br />
-            Authorization: "Bearer [access_token]" <br /><br />
-          </td>
-          <td>
-            { <br />
-            &nbsp; "status": "Success", <br />
-            &nbsp; "message": "User Deleted" <br />
+            Content-type: application/json<br />
+            {<br />
+            &nbsp;"title": "Judul Note",<br />
+            &nbsp;"content": "Isi Note"<br />
             }
           </td>
+          <td>{ "id": 1, "title": "...", "content": "..." }</td>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td>/notes/:id</td>
+          <td>Mengubah note berdasarkan id.</td>
+          <td>
+            Content-type: application/json<br />
+            {<br />
+            &nbsp;"title": "Note Baru",<br />
+            &nbsp;"content": "Konten Baru"<br />
+            }
+          </td>
+          <td>{ "message": "Note updated successfully" }</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/notes/:id</td>
+          <td>Menghapus note berdasarkan id.</td>
+          <td>None</td>
+          <td>{ "message": "Note deleted successfully" }</td>
         </tr>
       </tbody>
     </table>

@@ -9,15 +9,18 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(cookieParser());
+
 app.use(
   cors({
-    origin: "https://notesgita-dot-g-07-450802.uc.r.appspot.com/", // <- Diganti sama alamat front-end
+    origin: "https://notesgita-dot-g-07-450802.uc.r.appspot.com",
     credentials: true,
   })
 );
 
 app.use(express.json());
+
 app.get("/", (req, res) => res.render("index"));
+
 app.use(UserRoute);
 app.use(NoteRoute);
 
